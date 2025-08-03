@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family:  Georgia, sans-serif;
+            font-family: Georgia, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
@@ -31,6 +31,54 @@
             margin-bottom: 2rem;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
             font-weight: 300;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .copyright::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .copyright:hover::before {
+            left: 100%;
+        }
+
+        .copyright p {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin: 0;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 2;
+            font-family: Georgia, serif;
+            text-transform: uppercase;
+        }
+
+        .copyright:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .palette-section {
@@ -200,52 +248,12 @@
             .color-card {
                 padding: 1.5rem;
             }
+
+            .copyright p {
+                font-size: 1.1rem;
+                letter-spacing: 1px;
+            }
         }
-        .copyright {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.copyright::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.8s ease;
-}
-
-.copyright:hover::before {
-    left: 100%;
-}
-
-.copyright p {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.4);
-    margin: 0;
-    letter-spacing: 1.5px;
-    position: relative;
-    z-index: 2;
-    font-family: Georgia, serif;
-}
-
-.copyright:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
-}
     </style>
 </head>
 <body>
@@ -257,7 +265,7 @@
     <div class="container">
         <h1>🎨 Идеальные цветовые решения для резинок</h1>
         
-        <!-- Копирайт -->
+        <!-- Копирайт - теперь более заметный -->
         <div class="copyright">
             <p>© Вязать здорово 🔮 Магия узора | 2025</p>
         </div>
