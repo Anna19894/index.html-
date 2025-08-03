@@ -201,6 +201,51 @@
                 padding: 1.5rem;
             }
         }
+        .copyright {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.copyright::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.8s ease;
+}
+
+.copyright:hover::before {
+    left: 100%;
+}
+
+.copyright p {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    margin: 0;
+    letter-spacing: 1.5px;
+    position: relative;
+    z-index: 2;
+    font-family: Georgia, serif;
+}
+
+.copyright:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
     </style>
 </head>
 <body>
