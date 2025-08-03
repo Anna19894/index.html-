@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Идеальные цветовые решения для резинок</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:  Georgia, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            font-weight: 300;
+        }
+
+        .palette-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 300;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .color-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .color-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .color-card:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .color-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .color-sample {
+            width: 100%;
+            height: 80px;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .color-sample::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .color-card:hover .color-sample::after {
+            left: 100%;
+        }
+
+        .color-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
+        }
+
+        .color-hex {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-description {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .pattern-recommendation {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .pattern-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #FFE5B4;
+        }
+
+        .floating-decoration {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .floating-decoration:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating-decoration:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+        .floating-decoration:nth-child(3) { bottom: 10%; left: 20%; animation-delay: 4s; }
+        .floating-decoration:nth-child(4) { bottom: 20%; right: 20%; animation-delay: 1s; }
+
+        @media (max-width: 768px) {
+            .color-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .color-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-decoration"></div>
+    <div class="floating-decoration"></div>
+    <div class="floating-decoration"></div>
+    <div class="floating-decoration"></div>
+
+    <div class="container">
+        <h1>🎨 Идеальные цветовые решения для резинок</h1>
+
+        <div class="palette-section">
+            <h2 class="section-title">🌸 Для английской резинки - мягкие тона</h2>
+            <p class="section-subtitle">Нежные оттенки, которые подчеркивают объемную фактуру английской резинки</p>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-sample" style="background: #E6E6FA;"></div>
+                    <div class="color-name">Лавандовый</div>
+                    <div class="color-hex">#E6E6FA</div>
+                    <div class="color-description">Нежный фиолетовый оттенок, создающий романтическое настроение</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #F0E68C;"></div>
+                    <div class="color-name">Кремовый</div>
+                    <div class="color-hex">#F0E68C</div>
+                    <div class="color-description">Теплый желтоватый тон, идеальный для уютных изделий</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #B0E0E6;"></div>
+                    <div class="color-name">Пудровый</div>
+                    <div class="color-hex">#B0E0E6</div>
+                    <div class="color-description">Мягкий голубой, напоминающий утреннее небо</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #98FB98;"></div>
+                    <div class="color-name">Мятный</div>
+                    <div class="color-hex">#98FB98</div>
+                    <div class="color-description">Свежий зеленый оттенок, дарящий ощущение прохлады</div>
+                </div>
+            </div>
+
+            <div class="pattern-recommendation">
+                <div class="pattern-title">💡 Рекомендация</div>
+                <p>Эти цвета идеально подходят для шарфов, детских изделий, домашних кардиганов и всего, что должно выглядеть мягко и уютно</p>
+            </div>
+        </div>
+
+        <div class="palette-section">
+            <h2 class="section-title">🎩 Для французской резинки - структурированные тона</h2>
+            <p class="section-subtitle">Благородные оттенки, подчеркивающие изысканную фактуру французской резинки</p>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-sample" style="background: #708090;"></div>
+                    <div class="color-name">Серый сталь</div>
+                    <div class="color-hex">#708090</div>
+                    <div class="color-description">Элегантный серый с голубоватым подтоном, символ стиля</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #8B4513;"></div>
+                    <div class="color-name">Шоколадный</div>
+                    <div class="color-hex">#8B4513</div>
+                    <div class="color-description">Насыщенный коричневый, создающий ощущение роскоши</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #2F4F4F;"></div>
+                    <div class="color-name">Графитовый</div>
+                    <div class="color-hex">#2F4F4F</div>
+                    <div class="color-description">Глубокий темно-серый, подчеркивающий структуру узора</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #8B0000;"></div>
+                    <div class="color-name">Бордовый</div>
+                    <div class="color-hex">#8B0000</div>
+                    <div class="color-description">Благородный винный оттенок, символ аристократизма</div>
+                </div>
+            </div>
+
+            <div class="pattern-recommendation">
+                <div class="pattern-title">💡 Рекомендация</div>
+                <p>Эти цвета прекрасно подойдут для деловых свитеров, элегантных жилетов, мужских изделий и всего, что требует четкой структуры</p>
+            </div>
+        </div>
+
+        <div class="palette-section">
+            <h2 class="section-title">✨ Универсальные классические тона</h2>
+            <p class="section-subtitle">Беспроигрышные оттенки для любого типа резинки</p>
+            
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-sample" style="background: #FFFDD0;"></div>
+                    <div class="color-name">Молочный</div>
+                    <div class="color-hex">#FFFDD0</div>
+                    <div class="color-description">Классический белый с теплым подтоном</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #F5F5DC;"></div>
+                    <div class="color-name">Бежевый</div>
+                    <div class="color-hex">#F5F5DC</div>
+                    <div class="color-description">Нейтральный тон, сочетающийся с любыми цветами</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #A9A9A9;"></div>
+                    <div class="color-name">Серый меланж</div>
+                    <div class="color-hex">#A9A9A9</div>
+                    <div class="color-description">Универсальный серый для базовых изделий</div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-sample" style="background: #2F2F2F;"></div>
+                    <div class="color-name">Черный</div>
+                    <div class="color-hex">#2F2F2F</div>
+                    <div class="color-description">Глубокий черный, подчеркивающий любую фактуру</div>
+                </div>
+            </div>
+
+            <div class="pattern-recommendation">
+                <div class="pattern-title">💡 Рекомендация</div>
+                <p>Эти цвета - основа гардероба. Они подходят для любых резинок и легко комбинируются с яркими акцентами</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем интерактивность при клике на цветовую карточку
+        document.querySelectorAll('.color-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const colorHex = this.querySelector('.color-hex').textContent;
+                const colorName = this.querySelector('.color-name').textContent;
+                
+                // Копируем цветовой код в буфер обмена
+                navigator.clipboard.writeText(colorHex).then(() => {
+                    // Показываем уведомление
+                    const notification = document.createElement('div');
+                    notification.textContent = `Цвет "${colorName}" (${colorHex}) скопирован!`;
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: rgba(0,0,0,0.8);
+                        color: white;
+                        padding: 1rem 2rem;
+                        border-radius: 10px;
+                        z-index: 1000;
+                        font-size: 0.9rem;
+                        backdrop-filter: blur(10px);
+                        border: 1px solid rgba(255,255,255,0.2);
+                    `;
+                    
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 2000);
+                }).catch(() => {
+                    console.log('Не удалось скопировать цвет');
+                });
+            });
+        });
+
+        // Анимация появления карточек при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Устанавливаем начальные стили и наблюдаем за карточками
+        document.querySelectorAll('.color-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
